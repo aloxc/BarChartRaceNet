@@ -80,7 +80,7 @@
         /// <summary>
         /// Gets or sets the StatisticsMethod.
         /// </summary>
-        public StatisticsMethod StatisticsMethod { get; set; } = StatisticsMethod.Total;
+        public StatisticsMethod StatisticsMethod { get; set; } = StatisticsMethod.总和;
 
         /// <summary>
         /// Gets or sets the StringToImageUrlDictionary.

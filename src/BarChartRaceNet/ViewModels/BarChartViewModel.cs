@@ -52,7 +52,7 @@
 
         private ListSortDirection _sortDirection = ListSortDirection.Descending;
 
-        private StatisticsMethod _statisticsMethod = StatisticsMethod.Total;
+        private StatisticsMethod _statisticsMethod = StatisticsMethod.总和;
 
         private string _statisticsOutputValue;
 
@@ -248,7 +248,7 @@
         /// <returns>The <see cref="string"/>.</returns>
         private string GetValue(double value)
         {
-            var isPercentage = this.StatisticsMethod == StatisticsMethod.Percentage || this.StatisticsMethod == StatisticsMethod.PercentageAverage;
+            var isPercentage = false;
             var percentChar = isPercentage ? "%" : string.Empty;
             var stringValue = $"{value.Format(this.DecimalPlaces)}{percentChar}";
             return stringValue;

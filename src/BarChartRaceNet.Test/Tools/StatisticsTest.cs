@@ -21,11 +21,11 @@
         public void Calculate()
         {
             var list = new List<double> { 1, 2, 3 };
-            var output = list.Calculate(StatisticsMethod.Average, 1);
+            var output = list.Calculate(StatisticsMethod.平均, 1);
             output.Should().Be("Average: 2.0");
             output = list.Calculate(StatisticsMethod.PercentageAverage, 2);
             output.Should().Be("Average: 2.00%");
-            output = list.Calculate(StatisticsMethod.Total, 2);
+            output = list.Calculate(StatisticsMethod.总和, 2);
             output.Should().Be("Total: 6.00");
         }
 

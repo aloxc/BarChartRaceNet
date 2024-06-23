@@ -15,37 +15,12 @@
         /// <summary>
         /// Defines the Average.
         /// </summary>
-        Average,
-
-        /// <summary>
-        /// Defines the Median.
-        /// </summary>
-        Median,
-
-        /// <summary>
-        /// Defines the Mean.
-        /// </summary>
-        Mean,
-
-        /// <summary>
-        /// Defines the Percentage.
-        /// </summary>
-        Percentage,
-
-        /// <summary>
-        /// Defines the PercentageAverage.
-        /// </summary>
-        PercentageAverage,
-
-        /// <summary>
-        /// Defines the StandardDeviation.
-        /// </summary>
-        StandardDeviation,
+        平均,
 
         /// <summary>
         /// Defines the Total.
         /// </summary>
-        Total,
+        总和,
     }
 
     #endregion Enums

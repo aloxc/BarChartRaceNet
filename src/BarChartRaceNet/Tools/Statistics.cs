@@ -26,24 +26,17 @@
                 case StatisticsMethod.None:
                     return null;
 
-                case StatisticsMethod.Average:
+                case StatisticsMethod.平均:
                     result = values.GetAverage();
-                    return $"Average: {result.Format(digits)}";
+                    return $"平均: {result.Format(digits)}";
 
-                case StatisticsMethod.Percentage:
-                    return "Total: 100%";
 
-                case StatisticsMethod.PercentageAverage:
-                    result = values.GetAverage();
-                    return $"Average: {result.Format(digits)}%";
-
-                case StatisticsMethod.Total:
+                case StatisticsMethod.总和:
                     result = values.GetTotal();
-                    return $"Total: {result.Format(digits)}";
-
+                    return $"总和: {result.Format(digits)}";
                 default:
                     result = values.GetTotal();
-                    return $"Total: {result.Format(digits)}";
+                    return $"总和: {result.Format(digits)}";
             }
         }
 

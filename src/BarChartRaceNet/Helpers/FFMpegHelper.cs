@@ -13,6 +13,7 @@ namespace BarChartRaceNet.Helpers
     using FFMpegCore.Pipes;
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
@@ -40,7 +41,50 @@ namespace BarChartRaceNet.Helpers
         {
             get
             {
-                var exist = File.Exists(FFMpegLib);
+                var exist = false;
+                ProcessStartInfo startInfo = new ProcessStartInfo("ffmpeg", "-version")
+
+                {
+
+                    RedirectStandardOutput = true,
+
+                    UseShellExecute = false,
+
+                    CreateNoWindow = true
+
+                };
+
+
+
+                using (Process process = Process.Start(startInfo))
+
+                {
+
+                    using (StreamReader reader = process.StandardOutput)
+
+                    {
+
+                        string result = reader.ReadToEnd();
+
+                        if (result != null)
+
+                        {
+
+                            if (result.Contains("ffmpeg version") && result.Contains("gyan.dev"))
+
+                            {
+
+                                exist = true;
+
+                            }
+
+                        }
+
+                        Console.WriteLine(result);
+
+                    }
+
+                }
                 return exist;
             }
         }
