@@ -38,7 +38,7 @@
             <!--  Bar Chart View  -->
             <ScrollViewer
                 Grid.Column="0"
-                Background="Gainsboro"
+                Background="{Binding BackgroundColor, IsAsync=True}"
                 HorizontalScrollBarVisibility="Auto"
                 VerticalScrollBarVisibility="Auto">
                 <Grid
@@ -48,7 +48,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     DataContext="{Binding BarChartViewModel}">
-                    <Border Background="White">
+                    <Border Background="{Binding BackgroundColor, IsAsync=True}">
                         <Border.Effect>
                             <DropShadowEffect
                                 BlurRadius="10"
@@ -70,6 +70,7 @@
                 </ScrollViewer.Resources>
                 <!--  Chart Properties Editor  -->
                 <StackPanel Grid.IsSharedSizeScope="True">
+                    
                     <GroupBox
                         Margin="4,2"
                         DataContext="{Binding BarChartViewModel}"
@@ -238,6 +239,14 @@
                                 StringFormat="0.##"
                                 Value="{Binding BackgroundImageOpacity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=500}" />
                             <!--  Bar Colors  -->
+                            <Button
+                                Grid.Row="10"
+                                Grid.Column="0"
+                                Margin="{StaticResource ControlMargin}"
+                                Command="{Binding ElementName=ChartEditorViewRoot, Path=DataContext.ChangeStyleCommand}"
+                                Background="{Binding ChangeButtonBackgroundColor, IsAsync=True}"
+                               
+                                Content="切换背景" />
                             <Button
                                 Grid.Row="10"
                                 Grid.Column="2"

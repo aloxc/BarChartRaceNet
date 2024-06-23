@@ -7,6 +7,7 @@
     using BarChartRaceNet.Models;
     using BarChartRaceNet.Tools;
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Collections.Specialized;
     using System.ComponentModel;
@@ -25,6 +26,9 @@
         private Brush _background = new SolidColorBrush(Colors.White);
 
         private string _backgroundImage;
+
+        private string _backgroundColor;
+        private string _changeButtonBackgroundColor;
 
         private double _backgroundImageOpacity = 1;
 
@@ -68,6 +72,10 @@
 
         private double _width = 1200;
 
+        public int _changeButtonColorIndex = 0;
+
+        public string[] ChangeButtonBackgroundColors = { "#ff0000", "#ff00ee","Green", "DarkOrange", "DoderBlue", "RoyalBlue", "Olive", "BrulyWood", "Gold", "DarkTurquoise" };
+
         #endregion Fields
 
         #region Constructors
@@ -94,6 +102,8 @@
         /// Gets or sets the BackgroundImage.
         /// </summary>
         public string BackgroundImage { get => _backgroundImage; set => this.Set(this.PropertyChangedHandler, ref _backgroundImage, value); }
+        public string BackgroundColor { get => _backgroundColor; set => this.Set(this.PropertyChangedHandler, ref _backgroundColor, value); }
+        public string ChangeButtonBackgroundColor { get => _changeButtonBackgroundColor; set => this.Set(this.PropertyChangedHandler, ref _changeButtonBackgroundColor, value); }
 
         /// <summary>
         /// Gets or sets the BackgroundImageOpacity.

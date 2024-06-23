@@ -5,6 +5,7 @@
     using BarChartRaceNet.Models;
     using Ookii.Dialogs.Wpf;
     using System;
+    using System.Drawing;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -30,6 +31,7 @@
             this.BarChartViewModel = new BarChartViewModel(this.GlobalData);
             this.BarChartViewLoadedCommand = new RelayCommand(this.OnBarChartViewLoaded, nameof(this.BarChartViewLoadedCommand));
             this.RegenerateBarColorCommand = new RelayCommand(this.OnRegenerateBarColor, nameof(this.RegenerateBarColorCommand));
+            this.ChangeStyleCommand = new RelayCommand(this.OnChangeStyleCommand, nameof(this.ChangeStyleCommand));
             this.InitialDirectory = this.GlobalData.SettingsModel.InitialDirectory;
             this.Initialize();
         }
@@ -67,6 +69,7 @@
         /// Gets the RegenerateBarColorCommand.
         /// </summary>
         public RelayCommand RegenerateBarColorCommand { get; }
+        public RelayCommand ChangeStyleCommand { get; }
 
         /// <summary>
         /// Gets or sets the InitialDirectory.
@@ -308,6 +311,25 @@
             }
         }
 
+        private void OnChangeStyleCommand(object obj)
+        {
+
+/*            this.BarChartViewModel.BackgroundColor = "Red";
+
+            int index = this.BarChartViewModel._changeButtonColorIndex + 1;
+            this.BarChartViewModel.BackgroundColor = this.BarChartViewModel.ChangeButtonBackgroundColors[index];
+            if(index + 1 >= this.BarChartViewModel.ChangeButtonBackgroundColors.Length)
+            {
+                index = -1;
+            }
+            this.BarChartViewModel.ChangeButtonBackgroundColor = this.BarChartViewModel.ChangeButtonBackgroundColors[index + 1];
+            this.BarChartViewModel._changeButtonColorIndex = index;*/
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            string color = $"#{randomColor.R:X2}{randomColor.G:X2}{randomColor.B:X2}";
+            this.BarChartViewModel.ChangeButtonBackgroundColor = color;
+            this.BarChartViewModel.BackgroundColor = color;
+        }
         #endregion Methods
     }
 }

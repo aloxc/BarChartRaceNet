@@ -11,7 +11,7 @@
     d:DataContext="{d:DesignInstance viewmodels:BarChartViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Background="White"
+    Background="{Binding BackgroundColor, IsAsync=True}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -89,6 +89,7 @@
                                             VerticalAlignment="Center"
                                             FontSize="{Binding Source={StaticResource BarChartViewModelProxy}, Path=DataContext.BarNameFontSize}"
                                             FontWeight="Bold"
+                                            Foreground="{Binding ChangeButtonBackgroundColor, IsAsync=True}"
                                             Opacity="{Binding BarOpacity}"
                                             Text="{Binding Name}" />
                                     </Grid>
